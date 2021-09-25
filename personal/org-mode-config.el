@@ -1,6 +1,6 @@
 ;;; Commentary:
 ;;; Code:
-(prelude-require-packages '(org-bullets visual-fill-column org-roam))
+(prelude-require-packages '(org-bullets org-roam))
 
 (dolist (face '((org-level-1 . 1.2)
                 (org-level-2 . 1.1)
@@ -19,10 +19,7 @@
 (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
 (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
 (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
-(set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
-
-(setq visual-fill-column-width 100
-      visual-fill-column-center-text t)
+(set-face-attribute 'org-checkbox nil :inherit 'fixed-)
 
 (setq org-ellipsis " ▾"
       org-agenda-start-with-log-mode t
@@ -35,10 +32,14 @@
 (setq org-roam-directory (file-truename "~/Notes")
       org-roam-v2-ack t)
 
+(global-set-key (kbd "C-c z l") 'org-roam-buffer-toggle)
+(global-set-key (kbd "C-c z f") 'org-roam-node-find)
+(global-set-key (kbd "C-c z i") 'org-roam-node-insert)
+(define-key org-mode-map (kbd "C-M i") 'completion-at-point)
+
 (org-roam-db-autosync-mode 1)
 
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)
                            (org-indent-mode 1)
                            (variable-pitch-mode 1)
-                           (visual-line-mode 1)
-                           (visual-fill-column-mode 1)))
+                           (visual-line-mode 1)))
