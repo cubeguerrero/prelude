@@ -10,7 +10,7 @@
                 (org-level-6 . 1.1)
                 (org-level-7 . 1.1)
                 (org-level-8 . 1.1)))
-  (set-face-attribute (car face) nil :font "Helvetica" :weight 'regular :height (cdr face)))
+  (set-face-attribute (car face) nil :font "Times New Roman" :weight 'regular :height (cdr face)))
 
   ;; Ensure that anything that should be fixed-pitch in Org files appears that way
 (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
@@ -26,16 +26,13 @@
       org-log-done 'time
       org-log-into-drawer t)
 
-(setq org-agenda-files
-      '("~/Notes/agenda.org"))
-
 (setq org-roam-directory (file-truename "~/Notes")
       org-roam-v2-ack t)
 
 (global-set-key (kbd "C-c z l") 'org-roam-buffer-toggle)
 (global-set-key (kbd "C-c z f") 'org-roam-node-find)
 (global-set-key (kbd "C-c z i") 'org-roam-node-insert)
-(define-key org-mode-map (kbd "C-M i") 'completion-at-point)
+(define-key org-mode-map (kbd "C-M-i") 'completion-at-point)
 
 (org-roam-db-autosync-mode 1)
 
