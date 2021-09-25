@@ -1,6 +1,6 @@
 ;;; Commentary:
 ;;; Code:
-(prelude-require-packages '(org-bullets visual-fill-column))
+(prelude-require-packages '(org-bullets visual-fill-column org-roam))
 
 (dolist (face '((org-level-1 . 1.2)
                 (org-level-2 . 1.1)
@@ -30,7 +30,12 @@
       org-log-into-drawer t)
 
 (setq org-agenda-files
-      '("~/.org/index.org"))
+      '("~/Notes/agenda.org"))
+
+(setq org-roam-directory (file-truename "~/Notes")
+      org-roam-v2-ack t)
+
+(org-roam-db-autosync-mode 1)
 
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)
                            (org-indent-mode 1)
