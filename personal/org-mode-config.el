@@ -9,10 +9,12 @@
 
 (setq org-roam-directory (file-truename "~/Notes")
       org-roam-v2-ack t
-      org-roam-capture-templates '(("l" "literature notes" plain (file "~/Notes/templates/literature-template.org")
+      org-roam-capture-templates '(("l" "literature notes" plain
+                                    "%?\n\nReferences:\n-"
                                     :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+filetags: literature")
                                     :unnarrowed t)
-                                   ("p" "permanent notes" plain (file "~/Notes/templates/permanent.org")
+                                   ("p" "permanent notes" plain
+                                    "%?"
                                     :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+filetags: permanent")
                                     :unnarrowed t)))
 
