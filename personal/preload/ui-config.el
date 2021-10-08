@@ -9,3 +9,4 @@
 (set-face-attribute 'variable-pitch nil :font "Times New Roman" :height cubeg/default-variable-font-size :weight 'regular)
 
 (mac-auto-operator-composition-mode t)
+(scroll-bar-mode -1)
